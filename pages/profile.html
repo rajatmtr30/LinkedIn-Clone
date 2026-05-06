@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | LinkedIn</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .profile-layout {
+            grid-template-columns: 1fr 300px;
+        }
+        @media (max-width: 992px) {
+            .profile-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+        .profile-banner {
+            height: 200px;
+            background-image: url('https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80');
+            background-size: cover;
+            background-position: center;
+            border-top-left-radius: var(--border-radius);
+            border-top-right-radius: var(--border-radius);
+            position: relative;
+        }
+        .profile-banner .edit-btn {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background-color: white;
+            padding: 8px;
+            border-radius: 50%;
+            box-shadow: 0 0 4px rgba(0,0,0,0.2);
+            color: var(--primary-color);
+        }
+        .profile-details {
+            padding: 0 24px 24px;
+            position: relative;
+        }
+        .profile-details-avatar {
+            width: 152px;
+            height: 152px;
+            border-radius: 50%;
+            border: 4px solid var(--card-bg);
+            margin-top: -112px;
+            margin-bottom: 16px;
+            background-color: white;
+            object-fit: cover;
+        }
+        .profile-name {
+            font-size: 24px;
+            font-weight: 600;
+        }
+        .profile-headline {
+            font-size: 16px;
+            margin-top: 4px;
+        }
+        .profile-location {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+        .profile-connections {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 14px;
+            margin-top: 8px;
+            display: inline-block;
+        }
+        .profile-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 16px;
+        }
+        .btn-sm {
+            padding: 6px 16px;
+            font-size: 14px;
+        }
+        .section-header {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .experience-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .experience-item:last-child {
+            margin-bottom: 0;
+        }
+        .experience-logo {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+        }
+        .experience-details h4 {
+            font-size: 16px;
+        }
+        .experience-details p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="container dashboard-container profile-layout">
+        <!-- Main Content -->
+        <section class="main-content">
+            <!-- Profile Intro -->
+            <div class="card">
+                <div class="profile-banner">
+                    <button class="edit-btn"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M21.13 2.86a3 3 0 00-4.17 0l-13 13L2 22l6.19-1.94 13-13a3 3 0 000-4.2zM5.32 18.6l-.76-.76L16 6.42l.76.76z"></path></svg></button>
+                </div>
+                <div class="profile-details">
+                    <img src="https://i.pravatar.cc/150?img=68" alt="Profile" class="profile-details-avatar">
+                    <h1 class="profile-name">Rajat Sharma</h1>
+                    <p class="profile-headline">Frontend Developer | UI/UX Enthusiast</p>
+                    <p class="profile-location">San Francisco, California, United States</p>
+                    <a href="#" class="profile-connections">500+ connections</a>
+                    
+                    <div class="profile-actions">
+                        <button class="btn btn-primary btn-sm">Open to</button>
+                        <button class="btn btn-outline btn-sm">Add section</button>
+                        <button class="btn btn-outline btn-sm">More</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Section -->
+            <div class="card" style="padding: 24px;">
+                <h2 class="section-header">About</h2>
+                <p style="font-size: 14px;">Passionate Frontend Developer with 5+ years of experience building responsive, user-centric web applications. Skilled in modern JavaScript, HTML5, CSS3, and creating accessible interfaces. Always eager to learn new technologies and contribute to exciting projects.</p>
+            </div>
+
+            <!-- Experience Section -->
+            <div class="card" style="padding: 24px;">
+                <h2 class="section-header">Experience</h2>
+                
+                <div class="experience-item">
+                    <img src="https://ui-avatars.com/api/?name=G&background=E53935&color=fff" alt="Company" class="experience-logo">
+                    <div class="experience-details">
+                        <h4>Senior Frontend Developer</h4>
+                        <p style="color: var(--text-primary);">Google</p>
+                        <p>Jan 2023 - Present • 3 yrs 5 mos</p>
+                        <p>San Francisco, CA</p>
+                        <p style="margin-top: 8px; font-size: 14px;">Lead developer for internal tools. Implemented performant UI components using vanilla JS and advanced CSS architectures.</p>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <img src="https://ui-avatars.com/api/?name=M&background=0D8ABC&color=fff" alt="Company" class="experience-logo">
+                    <div class="experience-details">
+                        <h4>Web Developer</h4>
+                        <p style="color: var(--text-primary);">Microsoft</p>
+                        <p>Jun 2019 - Dec 2022 • 3 yrs 7 mos</p>
+                        <p>Seattle, WA</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Education Section -->
+            <div class="card" style="padding: 24px;">
+                <h2 class="section-header">Education</h2>
+                
+                <div class="experience-item">
+                    <img src="https://ui-avatars.com/api/?name=S&background=4CAF50&color=fff" alt="University" class="experience-logo">
+                    <div class="experience-details">
+                        <h4>Stanford University</h4>
+                        <p style="color: var(--text-primary);">Bachelor of Science - BS, Computer Science</p>
+                        <p>2015 - 2019</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Sidebar -->
+        <aside class="right-sidebar">
+            <div class="card" style="padding: 16px;">
+                <h2 style="font-size: 16px; margin-bottom: 16px;">People also viewed</h2>
+                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                    <img src="https://i.pravatar.cc/150?img=33" alt="User" style="width: 48px; height: 48px; border-radius: 50%;">
+                    <div>
+                        <h4 style="font-size: 14px;">Emily Chen</h4>
+                        <p style="font-size: 12px; color: var(--text-secondary);">Software Engineer at Meta</p>
+                        <button class="btn btn-outline" style="padding: 4px 12px; font-size: 14px; margin-top: 4px; border-radius: 24px;">Connect</button>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                    <img src="https://i.pravatar.cc/150?img=12" alt="User" style="width: 48px; height: 48px; border-radius: 50%;">
+                    <div>
+                        <h4 style="font-size: 14px;">David Smith</h4>
+                        <p style="font-size: 12px; color: var(--text-secondary);">Product Designer</p>
+                        <button class="btn btn-outline" style="padding: 4px 12px; font-size: 14px; margin-top: 4px; border-radius: 24px;">Connect</button>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/components.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

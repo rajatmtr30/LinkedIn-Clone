@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network | LinkedIn</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .network-layout {
+            grid-template-columns: 225px 1fr;
+        }
+        @media (max-width: 768px) {
+            .network-layout { grid-template-columns: 1fr; }
+        }
+        .network-sidebar-menu {
+            list-style: none;
+        }
+        .network-sidebar-menu li {
+            padding: 12px 16px;
+            font-size: 16px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+        .network-sidebar-menu li:hover {
+            background-color: var(--hover-bg);
+        }
+        .network-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 16px;
+            padding: 16px;
+        }
+        .connection-card {
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            text-align: center;
+            background-color: var(--card-bg);
+            position: relative;
+        }
+        .connection-card .bg-image {
+            height: 60px;
+            background-color: #a0b4b7;
+        }
+        .connection-card .avatar {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            margin-top: -36px;
+            border: 2px solid var(--card-bg);
+        }
+        .connection-card .info {
+            padding: 8px;
+            min-height: 90px;
+        }
+        .connection-card h4 {
+            font-size: 16px;
+        }
+        .connection-card p {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+        .connection-card .btn-connect {
+            width: calc(100% - 16px);
+            margin: 0 8px 8px;
+            padding: 6px 0;
+            border-radius: 24px;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .connection-card .btn-connect:hover {
+            background-color: rgba(10, 102, 194, 0.08);
+            border-width: 2px;
+            padding: 5px 0; /* Adjust for border width change */
+        }
+        .close-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="container dashboard-container network-layout">
+        <!-- Left Sidebar -->
+        <aside class="left-sidebar">
+            <div class="card">
+                <div style="padding: 16px; border-bottom: 1px solid var(--border-color);">
+                    <h3 style="font-size: 16px;">Manage my network</h3>
+                </div>
+                <ul class="network-sidebar-menu">
+                    <li><span>Connections</span> <span>500</span></li>
+                    <li><span>Contacts</span> <span>1,203</span></li>
+                    <li><span>Following & followers</span> <span></span></li>
+                    <li><span>Groups</span> <span>5</span></li>
+                    <li><span>Events</span> <span>2</span></li>
+                    <li><span>Pages</span> <span>18</span></li>
+                    <li><span>Newsletters</span> <span>4</span></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <section class="main-content">
+            <div class="card">
+                <div style="padding: 16px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
+                    <h3 style="font-size: 16px;">People you may know</h3>
+                    <a href="#" style="font-size: 14px; font-weight: 600;">See all</a>
+                </div>
+                
+                <div class="network-grid">
+                    <div class="connection-card">
+                        <button class="close-btn">×</button>
+                        <div class="bg-image"></div>
+                        <img src="https://i.pravatar.cc/150?img=50" alt="User" class="avatar">
+                        <div class="info">
+                            <h4>Michael Brown</h4>
+                            <p>Product Manager at Amazon</p>
+                        </div>
+                        <button class="btn-connect">Connect</button>
+                    </div>
+                    <div class="connection-card">
+                        <button class="close-btn">×</button>
+                        <div class="bg-image"></div>
+                        <img src="https://i.pravatar.cc/150?img=32" alt="User" class="avatar">
+                        <div class="info">
+                            <h4>Lisa Wong</h4>
+                            <p>Data Scientist | Machine Learning</p>
+                        </div>
+                        <button class="btn-connect">Connect</button>
+                    </div>
+                    <div class="connection-card">
+                        <button class="close-btn">×</button>
+                        <div class="bg-image"></div>
+                        <img src="https://i.pravatar.cc/150?img=15" alt="User" class="avatar">
+                        <div class="info">
+                            <h4>James Taylor</h4>
+                            <p>Software Engineer</p>
+                        </div>
+                        <button class="btn-connect">Connect</button>
+                    </div>
+                    <div class="connection-card">
+                        <button class="close-btn">×</button>
+                        <div class="bg-image"></div>
+                        <img src="https://i.pravatar.cc/150?img=44" alt="User" class="avatar">
+                        <div class="info">
+                            <h4>Anna Davis</h4>
+                            <p>HR Specialist</p>
+                        </div>
+                        <button class="btn-connect">Connect</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/components.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

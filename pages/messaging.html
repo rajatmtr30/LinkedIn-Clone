@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messaging | LinkedIn</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .messaging-layout {
+            display: flex;
+            height: calc(100vh - 100px); /* Adjust based on navbar/margin */
+            margin-top: 24px;
+        }
+        .msg-sidebar {
+            width: 320px;
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            background-color: var(--card-bg);
+            border-top-left-radius: var(--border-radius);
+            border-bottom-left-radius: var(--border-radius);
+        }
+        .msg-header {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .msg-search {
+            padding: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .msg-search input {
+            width: 100%;
+            padding: 8px 12px;
+            background-color: var(--search-bg);
+            border: none;
+            border-radius: 4px;
+            color: var(--text-primary);
+        }
+        .msg-list {
+            flex: 1;
+            overflow-y: auto;
+        }
+        .msg-item {
+            display: flex;
+            gap: 12px;
+            padding: 12px 16px;
+            cursor: pointer;
+            border-left: 2px solid transparent;
+        }
+        .msg-item:hover {
+            background-color: var(--hover-bg);
+        }
+        .msg-item.active {
+            background-color: rgba(10, 102, 194, 0.08);
+            border-left-color: var(--primary-color);
+        }
+        .msg-item img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+        }
+        .msg-item-info {
+            flex: 1;
+            overflow: hidden;
+        }
+        .msg-item-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .msg-item-top h4 {
+            font-size: 14px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .msg-item-top span {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        .msg-item-preview {
+            font-size: 12px;
+            color: var(--text-secondary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-top: 4px;
+        }
+        
+        .msg-main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--card-bg);
+            border-top-right-radius: var(--border-radius);
+            border-bottom-right-radius: var(--border-radius);
+        }
+        .msg-main-header {
+            padding: 16px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .msg-chat {
+            flex: 1;
+            padding: 16px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .bubble {
+            max-width: 70%;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        .bubble-received {
+            background-color: var(--search-bg);
+            color: var(--text-primary);
+            align-self: flex-start;
+            border-bottom-left-radius: 0;
+        }
+        .bubble-sent {
+            background-color: var(--primary-color);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 0;
+        }
+        .msg-input {
+            padding: 16px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+        }
+        .msg-input textarea {
+            width: 100%;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 12px;
+            resize: none;
+            height: 80px;
+            background-color: transparent;
+            color: var(--text-primary);
+            font-family: inherit;
+        }
+        .msg-input textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        .msg-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 8px;
+        }
+        .msg-tools {
+            display: flex;
+            gap: 12px;
+            color: var(--text-secondary);
+        }
+        @media (max-width: 768px) {
+            .messaging-layout {
+                flex-direction: column;
+                height: auto;
+                min-height: 80vh;
+            }
+            .msg-sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+                border-bottom-left-radius: 0;
+                border-top-right-radius: var(--border-radius);
+                max-height: 250px;
+            }
+            .msg-main {
+                border-top-right-radius: 0;
+                border-bottom-left-radius: var(--border-radius);
+            }
+            .msg-chat {
+                min-height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="container">
+        <div class="card messaging-layout">
+            <!-- Sidebar -->
+            <div class="msg-sidebar">
+                <div class="msg-header">
+                    <h3>Messaging</h3>
+                    <button class="post-options"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M14 12a2 2 0 11-2-2 2 2 0 012 2zM4 10a2 2 0 102 2 2 2 0 00-2-2zm16 0a2 2 0 102 2 2 2 0 00-2-2z"></path></svg></button>
+                </div>
+                <div class="msg-search">
+                    <input type="text" placeholder="Search messages">
+                </div>
+                <div class="msg-list">
+                    <div class="msg-item active">
+                        <img src="https://i.pravatar.cc/150?img=1" alt="Jane">
+                        <div class="msg-item-info">
+                            <div class="msg-item-top">
+                                <h4>Jane Doe</h4>
+                                <span>2:15 PM</span>
+                            </div>
+                            <div class="msg-item-preview">That sounds great! Let's schedule a call.</div>
+                        </div>
+                    </div>
+                    <div class="msg-item">
+                        <img src="https://i.pravatar.cc/150?img=11" alt="Alex">
+                        <div class="msg-item-info">
+                            <div class="msg-item-top">
+                                <h4>Alex Johnson</h4>
+                                <span>Yesterday</span>
+                            </div>
+                            <div class="msg-item-preview">Thanks for the update.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Chat -->
+            <div class="msg-main">
+                <div class="msg-main-header">
+                    <div>
+                        <h3 style="font-size: 16px;">Jane Doe</h3>
+                        <p style="font-size: 12px; color: var(--text-secondary);">Senior Software Engineer</p>
+                    </div>
+                    <button class="post-options"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M14 12a2 2 0 11-2-2 2 2 0 012 2zM4 10a2 2 0 102 2 2 2 0 00-2-2zm16 0a2 2 0 102 2 2 2 0 00-2-2z"></path></svg></button>
+                </div>
+                <div class="msg-chat">
+                    <div class="bubble bubble-received">Hi! I saw your recent post about the new frontend stack.</div>
+                    <div class="bubble bubble-received">Would you be open to a quick chat next week to discuss some best practices?</div>
+                    <div class="bubble bubble-sent">Hello Jane! Yes, absolutely. I'm free on Wednesday afternoon.</div>
+                    <div class="bubble bubble-received">That sounds great! Let's schedule a call.</div>
+                </div>
+                <div class="msg-input">
+                    <textarea placeholder="Write a message..."></textarea>
+                    <div class="msg-actions">
+                        <div class="msg-tools">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 4H5a3 3 0 00-3 3v10a3 3 0 003 3h14a3 3 0 003-3V7a3 3 0 00-3-3zm1 13a1 1 0 01-1 1H5a1 1 0 01-1-1v-5.36l3-3 6 6 3-3 3 3zM10 9a2 2 0 11-2-2 2 2 0 012 2z"></path></svg>
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M14.71 11.29l-3.3-3.3a2 2 0 00-2.82 0l-5.3 5.3a1 1 0 001.42 1.42l5.3-5.3 3.3 3.3a2 2 0 002.82 0l4.3-4.3-1.42-1.42-4.28 4.3z"></path></svg>
+                        </div>
+                        <button class="btn btn-primary btn-sm" style="border-radius: 24px;">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/components.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

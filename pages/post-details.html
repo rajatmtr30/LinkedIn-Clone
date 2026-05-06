@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Details | LinkedIn</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <main class="container dashboard-container" style="max-width: 800px; display: block; margin: 0 auto; padding-top: 24px;">
+        <div class="card post" style="padding-bottom: 16px;">
+            <div class="post-header">
+                <a href="profile.html" class="post-author">
+                    <img src="https://i.pravatar.cc/150?img=1" alt="Jane Doe">
+                    <div class="post-author-info">
+                        <h4>Jane Doe</h4>
+                        <p>Senior Software Engineer at Google | Tech Speaker</p>
+                        <p>2h</p>
+                    </div>
+                </a>
+                <button class="post-options">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M14 12a2 2 0 11-2-2 2 2 0 012 2zM4 10a2 2 0 102 2 2 2 0 00-2-2zm16 0a2 2 0 102 2 2 2 0 00-2-2z"></path></svg>
+                </button>
+            </div>
+            
+            <div class="post-content">
+                <p>Just wrapped up an amazing week discussing AI and the future of web development! 🚀 It's fascinating to see how fast frontend ecosystems are evolving. What are your thoughts on Vanilla JS vs Frameworks for modern apps? #webdev #javascript #ai</p>
+            </div>
+            
+            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Post image" class="post-image">
+            
+            <div class="post-stats">
+                <span>👍 342</span>
+                <span>45 comments • 12 reposts</span>
+            </div>
+            
+            <div class="post-actions" style="border-bottom: 1px solid var(--border-color); margin-bottom: 16px; padding-bottom: 8px;">
+                <button class="post-action">
+                    <svg viewBox="0 0 24 24"><path d="M19.46 11l-3.91-3.91a7 7 0 01-1.69-2.74l-.49-1.47A2.76 2.76 0 0010.76 1 2.75 2.75 0 008 3.74v1.12a9.19 9.19 0 00.46 2.89L8.89 9H4.11a2.12 2.12 0 00-2.12 2.12 2.14 2.14 0 00.43 1.28L4 14l-1.58 1.6A2.14 2.14 0 002 16.88 2.12 2.12 0 004.11 19h11.34a2.15 2.15 0 001.93-1.16l2.94-6.06a2.16 2.16 0 00.22-.94A2.13 2.13 0 0019.46 11zM4 17h11l2.5-5H8.38l-1.07-3a11.23 11.23 0 01-.56-3.52V4A.75.75 0 017.5 3.25a.76.76 0 01.73.5l.5 1.5a9 9 0 002.16 3.51L14.8 12h2.2l-2.6 5.3H4v-1.8H5L4 14v-2h3.5v5H4z"></path></svg>
+                    Like
+                </button>
+                <button class="post-action">
+                    <svg viewBox="0 0 24 24"><path d="M8 10.5A1.5 1.5 0 119.5 12 1.5 1.5 0 018 10.5zm6.5 1.5a1.5 1.5 0 10-1.5-1.5 1.5 1.5 0 001.5 1.5zm7.5-6v12a2 2 0 01-2 2H6l-4 4V6a2 2 0 012-2h14a2 2 0 012 2zm-2 0H4v13.17L5.17 18H20z"></path></svg>
+                    Comment
+                </button>
+                <button class="post-action">
+                    <svg viewBox="0 0 24 24"><path d="M23 12l-4.61 7H16l4-6H8a3.92 3.92 0 00-4 4v2H2v-2a6 6 0 016-6h12l-4-6h2.39z"></path></svg>
+                    Repost
+                </button>
+                <button class="post-action">
+                    <svg viewBox="0 0 24 24"><path d="M21 3L0 10l7.66 4.26L16 8l-6.26 8.34L14 24l7-21z"></path></svg>
+                    Send
+                </button>
+            </div>
+
+            <!-- Comments Section -->
+            <div class="comments-section" style="padding: 0 16px;">
+                <div style="display: flex; gap: 8px; margin-bottom: 24px;">
+                    <img src="https://i.pravatar.cc/150?img=68" alt="Me" style="width: 40px; height: 40px; border-radius: 50%;">
+                    <input type="text" class="form-control" style="border-radius: 24px; padding: 8px 16px; height: 40px;" placeholder="Add a comment...">
+                </div>
+
+                <div class="comment" style="display: flex; gap: 8px; margin-bottom: 16px;">
+                    <img src="https://i.pravatar.cc/150?img=12" alt="User" style="width: 40px; height: 40px; border-radius: 50%;">
+                    <div style="background-color: var(--search-bg); padding: 12px; border-radius: 0 8px 8px 8px; flex: 1;">
+                        <h4 style="font-size: 14px;">David Smith</h4>
+                        <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 8px;">Product Designer</p>
+                        <p style="font-size: 14px;">I think Vanilla JS is making a huge comeback. The native APIs are so powerful now!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="../js/auth.js"></script>
+    <script src="../js/components.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

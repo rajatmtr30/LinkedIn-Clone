@@ -1,0 +1,47 @@
+{
+    "posts": [
+        {
+            "id": 1,
+            "author": {
+                "name": "Jane Doe",
+                "headline": "Senior Software Engineer at Google | Tech Speaker",
+                "avatar": "https://i.pravatar.cc/150?img=1"
+            },
+            "timestamp": "2h",
+            "content": "Just wrapped up an amazing week discussing AI and the future of web development! 🚀 It's fascinating to see how fast frontend ecosystems are evolving. What are your thoughts on Vanilla JS vs Frameworks for modern apps? #webdev #javascript #ai",
+            "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+            "likes": 342,
+            "comments": 45,
+            "reposts": 12,
+            "isLiked": false
+        },
+        {
+            "id": 2,
+            "author": {
+                "name": "Alex Johnson",
+                "headline": "Product Manager | Building User-Centric Products",
+                "avatar": "https://i.pravatar.cc/150?img=11"
+            },
+            "timestamp": "5h",
+            "content": "I am thrilled to announce that I will be joining Microsoft as a Senior Product Manager next month! Huge thanks to everyone who supported me along this journey. Can't wait to get started! 🎉",
+            "likes": 1205,
+            "comments": 180,
+            "reposts": 30,
+            "isLiked": true
+        },
+        {
+            "id": 3,
+            "author": {
+                "name": "Sarah Williams",
+                "headline": "UX/UI Designer | Design Systems Advocate",
+                "avatar": "https://i.pravatar.cc/150?img=5"
+            },
+            "timestamp": "1d",
+            "content": "A clean, consistent design system can save hundreds of engineering hours. Here are my top 5 tips for maintaining a scalable design system in Figma... 👇",
+            "likes": 89,
+            "comments": 15,
+            "reposts": 5,
+            "isLiked": false
+        }
+    ]
+}
